@@ -5,53 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wang Yi-Yu (王翊宇)</title>
   <style>
-    /* 極簡 CSS 重設與基礎設定 */
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; margin: 0; padding: 0; color: #222; background-color: #fff; }
-    h1 { margin: 0 0 8px 0; font-size: 2rem; }
-    h2 { border-bottom: 1px solid #eee; padding-bottom: 4px; margin-top: 30px; color: #111; font-size: 1.5rem; }
-    h3 { margin: 16px 0 8px; color: #444; font-size: 1.1rem; }
+    /* 基礎設定 */
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #222; background-color: #fff; }
+    h1 { margin: 0 0 6px 0; font-size: 1.8rem; }
+    h2 { border-bottom: 1px solid #eee; padding-bottom: 4px; margin-top: 32px; color: #111; font-size: 1.35rem; }
+    h3 { margin: 18px 0 8px; color: #444; font-size: 1.05rem; }
+    p { margin: 0 0 1em 0; }
+    ul { padding-left: 20px; margin: 0 0 1em 0; }
+    li { margin-bottom: 6px; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    ul { padding-left: 20px; margin: 0; }
-    li { margin-bottom: 6px; }
-    p { margin: 0 0 1em 0; }
 
-    /* --- 核心排版 CSS (Grid) --- */
-    
-    /* 建立全螢幕的雙欄佈局 */
-    .wrapper {
-      display: grid;
-      grid-template-columns: 280px 1fr; /* 左欄固定 280px，右欄自動填滿 */
-      min-height: 100vh;
-    }
+    /* 雙欄排版架構 */
+    .wrapper { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+    .sidebar { background-color: #f9f9f9; padding: 40px 30px; border-right: 1px solid #eee; }
+    .main-content { padding: 40px 50px; max-width: 800px; }
 
-    /* 左側固定邊欄樣式 */
-    .sidebar {
-      background-color: #f9f9f9; /* 淺灰色背景做區隔 */
-      padding: 40px 30px;
-      border-right: 1px solid #eee;
-      /* 若希望左邊固定不跟著滾動，可解開下一行註釋 */
-      /* position: sticky; top: 0; height: 100vh; overflow-y: auto; */
-    }
-
-    /* 右側主內容區樣式 */
-    .main-content {
-      padding: 40px 50px;
-      max-width: 800px; /* 限制內文寬度，方便閱讀 */
-    }
-
-    /* 左側個人資料細節 */
-    .profile-photo { width: 150px; height: 150px; border-radius: 8px;; object-fit: cover; margin-bottom: 20px; display: block; }
+    /* 左側資訊樣式（統一由此控制，HTML 內不需任何 style） */
+    .profile-photo { width: 150px; height: 150px; border-radius: 8px; object-fit: cover; margin-bottom: 20px; display: block; }
+    .en-name { color: #555; margin: 0; }
+    .title-dept { font-size: 0.95rem; color: #666; margin: 5px 0 0 0; }
     .contact-info { font-size: 0.9rem; color: #444; margin-top: 30px; word-wrap: break-word; }
     .contact-info strong { color: #111; display: block; margin-top: 15px; }
-    
-    /* 外部連結按鈕化 (選擇性) */
     .links-group { margin-top: 30px; display: flex; flex-direction: column; gap: 8px; }
     .links-group a { font-weight: bold; font-size: 0.9rem; }
 
-    /* 手機版 RWD 適配 */
+    /* 手機螢幕適配 */
     @media (max-width: 768px) {
-      .wrapper { grid-template-columns: 1fr; } /* 變成單欄 */
+      .wrapper { grid-template-columns: 1fr; }
       .sidebar { border-right: none; border-bottom: 1px solid #eee; padding: 30px; text-align: center; }
       .profile-photo { margin: 0 auto 20px auto; }
       .main-content { padding: 30px; }
@@ -62,17 +43,14 @@
 
   <div class="wrapper">
     
-    <!-- =================左側邊欄================= -->
+    <!-- ================= 左側邊欄 ================= -->
     <aside class="sidebar">
-      <!-- 照片 -->
       <img src="profile.jpg" alt="Wang Yi-Yu Photo" class="profile-photo">
       
-      <!-- 姓名與職稱 (移到照片下方) -->
       <h1>王翊宇</h1>
-      <p style="color:#555; margin-bottom: 0;">Wang, Yi-Yu</p>
-      <p style="font-size:0.95rem; color:#666; margin-top: 5px;">Assistant Professor<br>Dep. of Information and Library Science, Tamkang University</p>
+      <p class="en-name">Wang, Yi-Yu</p>
+      <p class="title-dept">Assistant Professor<br>Dep. of Information and Library Science, Tamkang University</p>
       
-      <!-- 聯絡方式 (從底部移來) -->
       <div class="contact-info">
         <strong>Contact</strong>
         ✉ wangyiyu[at]mail.tku.edu.tw
@@ -80,7 +58,6 @@
         🏠︎ Dep. of Information and Library Science, No. 151, Yingzuan Rd., Tamsui Dist., New Taipei City, 251301, Taiwan
       </div>
 
-      <!-- 外部連結 (從底部移來) -->
       <div class="links-group">
         <a href="https://www.dils.tku.edu.tw/Front/teacher-lineup/full-time-teachers/Members.aspx?id=1zIHtihbLDw=&lang=zh-tw&PID=0000000051" target="_blank">→ TKU Website</a>
         <a href="https://orcid.org/0000-0002-5053-548X" target="_blank">→ ORCiD</a>
@@ -89,29 +66,22 @@
       </div>
     </aside>
 
-    <!-- =================右側主內容================= -->
+    <!-- ================= 右側主內容 ================= -->
     <main class="main-content">
       
-      <!-- 簡介 -->
       <h2>About</h2>
-      <ul>
       <p>I am an Assistant Professor in the Department of Information and Library Science at Tamkang University. I completed my Ph.D. in Library and Information Science from National Taiwan University. My research focuses on information service quality, information behavior, and literacy.</p>
-      </ul>
-      <ul>
       <p>現職為淡江大學資訊與圖書館學系助理教授。我在2025年取得國立臺灣大學圖書資訊學系博士學位。我的研究興趣，圍繞在提升資訊服務的品質，並關注使用者的資訊資源利用能力及資訊素養。這項關懷體現在我過往在檔案使用能力的研究，以及博士論文所探討的巨型期刊品質議題。</p>
-      </ul>
 
-      <!-- 研究領域 -->
-      <h2>Expertise & Research Interests</h2>
+      <h2>Expertise &amp; Research Interests</h2>
       <ul>
-        <li>圖書資訊學（Library & Information Science）</li>
+        <li>圖書資訊學（Library &amp; Information Science）</li>
         <li>檔案學（Archival Studies）</li>
         <li>資訊組織（Information Organization）</li>
-        <li>資訊行為與資訊素養（Information Behavior & Information Literacy）</li>
-        <li>學術傳播與資訊計量（Scholarly Communication & Informetrics）</li>     
+        <li>資訊行為與資訊素養（Information Behavior &amp; Information Literacy）</li>
+        <li>學術傳播與資訊計量（Scholarly Communication &amp; Informetrics）</li>     
       </ul>
 
-      <!-- 著作列表 -->
       <h2>Publications</h2>
       <h3>Journal Papers</h3>
       <ul>
@@ -122,10 +92,10 @@
       <h3>Conference Presentations</h3>
       <ul>
         <li>王翊宇、林奇秀（2022）。從檔案使用專精能力模型探討檔案資訊素養綱領之內涵。在國立臺灣師範大學圖書資訊學研究所、中華民國圖書館學會主辦，圖書資訊學術與實務研討會 2022，台北市。</li>
-        <li>Lin, C.-S., & Wang, Y.-Y. (2019). How do university data services present their collection and reference service information on the Web? In Proceedings of the ASIS&T 2019 Annual Meeting. https://doi.org/10.1002/pra2.145</li>
-        <li>Wang, Y.-Y., & Lin, C.-S. (2019). A survey of data science education programs and courses in iSchools. In Proceedings of the ASIS&T 2019 Annual Meeting. https://doi.org/10.1002/pra2.184</li>
-        <li>Lin, C.-S., & Wang, Y.-Y. (2018). Data type and data source preferences for six social sciences subjects in quantitative data reuses. In Proceedings of the ASIS&T 2018 Annual Meeting. https://doi.org/10.1002/pra2.2018.14505501151</li>
-        <li>Lin, C.-S., & Wang, Y.-Y. (2018). The performance of reading appeal descriptors for fiction: From the perspective of Indexing consistency. In Proceedings of the ASIS&T 2018 Annual Meeting. https://doi.org/10.1002/pra2.2018.14505501152</li>
+        <li>Lin, C.-S., &amp; Wang, Y.-Y. (2019). How do university data services present their collection and reference service information on the Web? In Proceedings of the ASIS&amp;T 2019 Annual Meeting. https://doi.org/10.1002/pra2.145</li>
+        <li>Wang, Y.-Y., &amp; Lin, C.-S. (2019). A survey of data science education programs and courses in iSchools. In Proceedings of the ASIS&amp;T 2019 Annual Meeting. https://doi.org/10.1002/pra2.184</li>
+        <li>Lin, C.-S., &amp; Wang, Y.-Y. (2018). Data type and data source preferences for six social sciences subjects in quantitative data reuses. In Proceedings of the ASIS&amp;T 2018 Annual Meeting. https://doi.org/10.1002/pra2.2018.14505501151</li>
+        <li>Lin, C.-S., &amp; Wang, Y.-Y. (2018). The performance of reading appeal descriptors for fiction: From the perspective of Indexing consistency. In Proceedings of the ASIS&amp;T 2018 Annual Meeting. https://doi.org/10.1002/pra2.2018.14505501152</li>
       </ul>
 
       <h3>Book Chapter</h3>
@@ -133,19 +103,19 @@
         <li>藍文欽、王翊宇（2019）。圖書資訊學教育。收錄在<em>中華民國一○七年圖書館年鑑</em>。 <a href="https://nclfile.ncl.edu.tw/files/201910/69108a97-be04-477e-8502-418de67b7073.pdf" target="_blank">[PDF]</a></li>
       </ul>
 
-      <h3>Book Chapter & Dissertation</h3>
+      <h3>Dissertation</h3>
       <ul>
         <li>王翊宇（2025）。從作者來源與被引表現分析巨型期刊的品質差異：以標竿期刊為比較基礎［未出版之博士論文］。國立臺灣大學圖書資訊學研究所。</li>
       </ul>
-      <!-- 教學課程 -->
+
       <h2>Teaching</h2>
       <ul>
-        <li>圖書館學資訊科學導論(Introduction to Librarianship & Information Science, 115/1-)</li>
+        <li>圖書館學資訊科學導論(Introduction to Librarianship &amp; Information Science, 115/1-)</li>
         <li>人工智慧導論(Introduction to Artificial Intelligence, 115/1-)</li> 
         <li>探索永續(Exploring Sustainability, 115/1-)</li>
         <li>期刊管理(Periodical Management, 115/1-)</li>
         <li>智慧人文資料處理與應用(Intelligent Data Processing and Applications in the Humanities, 115/1-)</li>
-        <li>研究方法與寫作格式(Research Methods & Writing, 114/2-)</li>
+        <li>研究方法與寫作格式(Research Methods &amp; Writing, 114/2-)</li>
         <li>圖書館學統計(Statistic for Library Science, 114/2-)</li> 
         <li>資訊素養(Information Literacy, 114/2-)</li>
         <li>資訊圖表敘事力(Infographics and Applications, 114-2)</li>
@@ -165,27 +135,26 @@
       <ul>
         <li><strong>2025</strong> | 中華民國圖書館學會「2025圖書資訊學優秀學位論文獎助」博士論文 佳作</li>
       </ul>
-       <!-- 其他經歷 -->
-    
+
+      <!-- 其他經歷 -->
       <h2>Experience</h2>
       <h3>Reviewer</h3>
       <ul>
         <li>Journal of Library and Information Science Research (JLISR, ISSN: 2218-3388)</li>
         <li>Journal of Library and Information Studies (JLIS, ISSN: 1606-7509)</li>
         <li>Journal of Educational Media and Library Sciences (JoEMLS, ISSN: 1013-090X)</li>
-        <li>iConfernece</li>
-        <li>ASIS&T Annunal Meeting</li>
+        <li>iConference</li>
+        <li>ASIS&amp;T Annual Meeting</li>
         <li>CoLISP</li>
       </ul>
       <h3>Academic Association</h3>
-      
      
       <h2>Other Acativity</h2>
       <ul>
         <li>107年度公務人員高等考試三級考試暨普通考試 普考圖書資訊管理類科 錄取</li>
         <li>114年度公務人員高等考試三級考試暨普通考試 高考檔案管理類科 錄取</li>
         <li>114年度下半年績優替代役男</li>
-       </ul>
+      </ul>
 
     </main>
   </div> <!-- end wrapper -->
